@@ -12,4 +12,9 @@ public class MesageService {
 	public Message getMessage(Integer id) {
 		return messageMapper.getMessageById(id);
 	}
+	
+	// 새로운 메시지를 데이터베이스에 저장
+	public void createMessage(Message message) {
+		messageMapper.insertMessage(message);
+	}
 }
