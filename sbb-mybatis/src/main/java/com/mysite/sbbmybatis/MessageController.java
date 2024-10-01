@@ -4,10 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 // 웹 요청을 처리하는 역할임을 알리는 애노테이션
 @Controller
+// /message url로부터 요청을 받으면 MessageController 에서 처리함
+@RequestMapping("/message")
 public class MessageController {
 	// Autowired: MessageService의 인스턴스를 직접 생성하지 않고 Spring이 자동으로 주입함
 	@Autowired
