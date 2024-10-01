@@ -16,7 +16,7 @@ public class MessageController {
 	@Autowired
 	private MessageService messageService;
 	
-	@GetMapping("/message/{id}")
+	@GetMapping("/{id}")
 	// 메서드가 반환하는 값이 JSON 또는 XML 같은 형식으로 HTTP Response Body에 직접 쓰임
 	@ResponseBody
 	// PathVariable을 이용해 URL 경로에서 id 값을 추출해 해당 메서드이 파라미터로 넣음
