@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <mapper namespace="com.mystie.sbbmybatis.MessageMapper">
+
+	<!-- 데이터베이스 쿼리 조회 -->
 	<select id="getMessageById" resultType="com.mysite.sbbmybatis.Message">
 		SELECT * FROM hello WHERE id = #{id}
 	</select>
+	
+	<!--  데이터베이스에 메시지 삽입 -->
+	<insert id="insertMessage" parameterType="com.mysite.sbbmybatis.Message">
+		INSERT INTO hello (message) VALUES (#{message})
+	</insert>
 </mapper>
