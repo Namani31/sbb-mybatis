@@ -1,5 +1,7 @@
 package com.mysite.sbbmybatis;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,5 +43,11 @@ public class MessageController {
 	// 클라이언트가 POST 요청으로 보낸 데이터를 받아서 자동으로 Message 객체로 매핑
 	public void createMessage(@RequestBody Message message) {
 		messageService.createMessage(message);
+	}
+	
+	@GetMapping()
+	@ResponseBody
+	public List<Message> getMessages() {
+		return messageService.getMessagesLimit10();
 	}
 }
