@@ -25,4 +25,9 @@ public class MessageController {
 		// Integer id = 1;
 		return messageService.getMessage(id);
 	}
+	
+	@GetMapping("/create")
+	public String create() {
+		return "create-message";
+	}
 }
