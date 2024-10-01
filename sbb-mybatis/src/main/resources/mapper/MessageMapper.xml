@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
-<mapper namespace="com.mystie.sbbmybatis.MessageMapper">
+<!-- `DOCTYPE mapper` 가 아닌 `DOCTYPE configuration`을 쓰면
+	MyBatis가 해당 파일을 설정 파일로 해석하려고 시도함
+	MessageMapper.xml 파일은 <mapper> 요소로 시작해야 하는데
+	configuration으로 지정하면 MyBatis가 configuration 요소를 찾으려 함
+	따라서 루트 요소가 맞지 않아 오류 발생
+ -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mysite.sbbmybatis.MessageMapper">
 
 	<!-- 데이터베이스 쿼리 조회 -->
-	<select id="getMessageById" resultType="com.mysite.sbbmybatis.Message">
+	<select id="getMessageById"
+		resultType="com.mysite.sbbmybatis.Message">
 		SELECT * FROM hello WHERE id = #{id}
 	</select>
-	
-	<!--  데이터베이스에 메시지 삽입 -->
-	<insert id="insertMessage" parameterType="com.mysite.sbbmybatis.Message">
+
+	<!-- 데이터베이스에 메시지 삽입 -->
+	<insert id="insertMessage"
+		parameterType="com.mysite.sbbmybatis.Message">
 		INSERT INTO hello (message) VALUES (#{message})
 	</insert>
-	
-	<select id="getMessagesLimit10" resultType="com.mysite.sbbmybatis.Message">
+
+	<select id="getMessagesLimit10"
+		resultType="com.mysite.sbbmybatis.Message">
 		SELECT * FROM hello ORDER BY id DESC LIMIT 10;
 	</select>
 </mapper>
