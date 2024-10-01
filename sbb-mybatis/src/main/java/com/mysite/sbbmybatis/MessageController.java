@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -29,5 +31,15 @@ public class MessageController {
 	@GetMapping("/create")
 	public String create() {
 		return "create-message";
+	}
+	
+	// PostMapping: POST 요청이 들어오면 해당 메서드 실행
+	@PostMapping
+	// ResponseBody: 메서드의 반환값이 HTTP 응답 Body에 직접 쓰임
+	@ResponseBody
+	// RequestBody: 클라이언트가 요청한 JSON 데이터를 Message 객체로 변환
+	// 클라이언트가 POST 요청으로 보낸 데이터를 받아서 자동으로 Message 객체로 매핑
+	public void createMessage(@RequestBody Message message) {
+		messageService.createMessage(message);
 	}
 }
