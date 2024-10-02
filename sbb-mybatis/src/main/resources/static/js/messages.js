@@ -1,3 +1,6 @@
+// /js/utils.js
+const baseUrl = getBaseURL();
+
 // 폼이 submit 될 때 실행될 함수 정의함
 document.getElementById('messageForm').addEventListener('submit', function(e) {
 	// 페이지 새로고침을 막고 js로 이벤트 처리함
@@ -10,7 +13,7 @@ document.getElementById('messageForm').addEventListener('submit', function(e) {
 	};
 	
 	// /message 경로로 POST 요청을 보내서 새로운 메시지를 서버에 저장
-	fetch('/messages', {
+	fetch(baseUrl + '/messages', {
 		// 이 요청의 메서드는 POST
 		method: 'POST',
 		// 서버에 보내는 데이터가 JSON 형식
